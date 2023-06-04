@@ -1,7 +1,7 @@
 package chapter8.src.inheritance;
 
 public class Customer {
-    // protected 키워드는 패키지가 달라도 접근 할 수 있지만, 상속 관계에서만 접근 가능
+    // protected 키워드는 패키지가 다른 외부 클래스에서는 접근이 불가능하며, 이외에는 접근 가능
     protected int id;
     protected String name;
     protected String grade;
@@ -11,6 +11,8 @@ public class Customer {
     public Customer() {
         grade = "SILVER";
         bonusRatio = 0.01;
+
+        System.out.println("Customer() 호출");
     }
 
     public Customer(int id, String name) {
@@ -18,6 +20,8 @@ public class Customer {
         this.name = name;
         grade = "SILVER";
         bonusRatio = 0.01;
+
+        System.out.println("Customer() 호출");
     }
 
     public int calcPrice(int price) {

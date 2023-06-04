@@ -1,4 +1,4 @@
-package chapter8.src.inheritance;
+package chapter8.src.polymorphism;
 
 public class VIPCustomer extends Customer {
     double saleRatio;

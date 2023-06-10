@@ -85,6 +85,51 @@
 - 저장된 순서와 출력 순서는 다를 수 있음
 - `get(i)` 메서드가 제공되지 않음
 
+### TreeSet 클래스
 
+- 객체의 정렬에 사용되는 클래스
+- 중복을 허용하지 않으면서 오름차순 / 내림차순으로 객체를 정렬
+- 내부적으로 이진 검색 트리 (Binary Search Tree)로 구현되어 있음
+- 이진 검색 트리에 자료가 저장할 때 비교하여 저장될 위치를 정함
+- 객체 비교를 위해 `Comparable` 이나 `Comparator` 인터페이를 구현해야 함 (필수)
 
+#### Comparable Interface and Comparator Interface
 
+- 정렬 대상이 되는 클래스가 구현해야 하는 인터페이스
+- `Comparable` 은 `compareTo()` 메서드를 구현
+  - 매개 변수와 객체 자신(this)를 비교
+- `Comparator` 는 `compare()` 메서드를 구현
+  - 두 개의 매개 변수를 비교
+  - `TreeSet` 생성자에 `Comparator`가 구현된 객체를 매개변수로 전달
+    ```java
+    TreeSet<Memeber> treeSet = new TreeSet<Member>(new Member());
+    ```
+- 일반적으로 `Comparable`을 더 많이 사용
+- 이미 `Comparable`이 구현된 경우 `Comparator`를 이용해여 다른 정렬 방식을 정의할 수 있음
+
+---
+
+## Map 
+
+- key-value pair 의 객체를 관리하는데 필요한 메서드가 정의됨
+- key는 중복될 수 없음
+- 검색을 위한 자료구조
+- key를 이용해 값을 저장하거나 검색, 삭제 할 때 사용하면 편리
+- 내부적으로 hash 방식으로 구현됨
+  ```java
+  index = hash(key) // index는 저장 위치
+  ```
+- key가 되는 객체는 객체의 유일성 여부를 알기 위해 `equals()`와 `hashCode()`메서드를 재정의 함
+
+### HashMap 클래스
+
+- `Map` 인터페이스를 구현 한 클래스 중 가장 일반적으로 사용하는 클래스
+- `HashTable` 클래스는 자바2 부터 제공된 클래스로 `Vector`처럼 동기화를 제공
+- 여러 메서드를 활용해 pair 자료를 쉽고 빠르게 관리 가능
+
+### TreeMap 클래스
+
+- key 객체를 정렬하여 key-value를 pair로 관리하는 클래스
+- key에 사용되는 클래스에 `Comparable`, `Comparator` 인터페이스를 구현
+- java에 많은 클래스들은 이미 `Comparable`이 구현되어 있음
+- 구현된 클래스를 key로 사용하는 경우 구현할 필요 없음

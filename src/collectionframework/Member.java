@@ -1,9 +1,14 @@
 package collectionframework;
 
-public class Member {
+import java.util.Comparator;
+
+// Comparable, Comparator 둘 중 하나만 구현해도 괜츈
+public class Member implements Comparable<Member>, Comparator<Member> {
 
     private int memberId;
     private String memberName;
+
+    public Member() {}
 
     public Member(int memberId, String memberName) {
         this.memberId = memberId;
@@ -46,5 +51,20 @@ public class Member {
         }
 
         return false;
+    }
+
+    // 양수 시 오름차순
+    // 음수 시 내림차순
+    // for Comparable Interface
+    @Override
+    public int compareTo(Member member) {
+        return this.memberName.compareTo(member.memberName);
+    }
+
+    // for Comparator Interface
+    // 1번 파라미터 나 자신, 2번 파라미터 들어온 값
+    @Override
+    public int compare(Member m1, Member m2) {
+        return m1.memberId - m2.memberId;
     }
 }

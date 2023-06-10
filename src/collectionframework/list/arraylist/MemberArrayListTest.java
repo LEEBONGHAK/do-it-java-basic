@@ -1,4 +1,4 @@
-package collectionframework.arraylist;
+package collectionframework.list.arraylist;
 
 import collectionframework.Member;
 

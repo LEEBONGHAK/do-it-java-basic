@@ -1,8 +1,9 @@
-package collectionframework.arraylist;
+package collectionframework.list.arraylist;
 
 import collectionframework.Member;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class MemberArrayList {
     private ArrayList<Member> arrayList;
@@ -16,7 +17,17 @@ public class MemberArrayList {
     }
 
     public boolean removeMember(int memberId) {
-        for ( Member m : arrayList) {
+//        for ( Member m : arrayList) {
+//            if (m.getMemberId() == memberId) {
+//                arrayList.remove(m);
+//                System.out.println("삭제 성공");
+//                return true;
+//            }
+//        }
+
+        Iterator<Member> it = arrayList.iterator();
+        while (it.hasNext()) {
+            Member m = it.next();
             if (m.getMemberId() == memberId) {
                 arrayList.remove(m);
                 System.out.println("삭제 성공");

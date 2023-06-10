@@ -30,4 +30,21 @@ public class Member {
     public String toString() {
         return memberName + ", " + memberId;
     }
+
+    @Override
+    public int hashCode() {
+        return this.memberId;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Member) {
+            Member m = (Member) obj;
+
+            if (this.memberId == m.memberId) return true;
+            else return false;
+        }
+
+        return false;
+    }
 }

@@ -26,6 +26,8 @@
 | `boolean remove(Object o)` | Collection에 매게변수에 해당하는 인스턴스가 존재하면 제거 |
 | `int size()`               | Collection에 있는 요소의 개수를 반환            |
 
+---
+
 ## List 인터페이스
 
 - Collection 하위 인터페이스
@@ -55,6 +57,34 @@
 - `Stack` 과 `Queue`의 기능은 구현된 클래스가 있지만 `ArrayList` 또는 `LinkedList`를 활용해 사용할 수도 있음
 - `Stack` : Last In First Out (LIFO)
 - `Queue` : First In First Out (FIFO)
+
+---
+
+## Iterator 사용하여 순회하기
+
+- Collection 의 개체를 순회하는 인터페이스
+- `iterator()` 메서드 호출
+  ```java
+  Iterator<E> ir = memberArrayList.iterator();
+  ```
+- 선언된 메서드
+
+| 메서드                 | 설명                                            |
+|---------------------|-----------------------------------------------|
+| `boolean hasNext()` | 이후에 요소가 더 있는지를 체크하는 메서드이며, 요소가 있다면 `true`를 반환 |
+| `E next()`          | 다음에 있는 요소를 반환                                 |
+
+---
+
+## Set 인터페이스
+
+- Collection 하위의 인터페이스
+- 중복을 허용하지 않음
+- 유일한 값이나 객체를 관리할 때 사용
+- `List`는 순서 기반의 인터페이스이지만, `Set`은 순서가 없음
+- 저장된 순서와 출력 순서는 다를 수 있음
+- `get(i)` 메서드가 제공되지 않음
+
 
 
 

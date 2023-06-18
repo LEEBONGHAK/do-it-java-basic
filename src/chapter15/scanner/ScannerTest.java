@@ -1,4 +1,4 @@
-package chapter15.stream.scanner;
+package chapter15.scanner;
 
 import java.util.Scanner;
 

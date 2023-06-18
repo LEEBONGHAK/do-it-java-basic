@@ -142,3 +142,53 @@
 | `void flush()`                          | 출력을 위해 잠시 자료가 머무르는 출력 버퍼를 강제로 비워 자료를 출력                                            |
 | `void close()`                          | 출력 스트림과 연결된 대상 리소스를 닫음. 출력 버퍼가 비워짐                                                 |
 
+## 보조 스트림
+
+- 실제 읽고 쓰는 스트림이 아닌 보조적인 기능을 추가하는 스트림
+- 데코레이터 패턴
+- `FilterInputStream`과 `FilterOutputStream`이 보조스트림의 상위 클래스
+- 생성자의 매개 변수로 또 다른 스트림을 가짐
+
+| 생성자                                               | 설명                            |
+|---------------------------------------------------|-------------------------------|
+| `protected FilterInputStream(InputStream in)`     | 생성자의 매개변수로 `InputStream`을 받음  |
+| `protected FilterOutputStream(OutputStream out)`  | 생성자의 매개변수로 `OutputStream`을 받음 |
+
+### InputStreamReader 와 OutputStreamWriter
+
+- 바이트 단위로 읽거나 쓰는 자료를 문자로 변환해주는 보조 스트림
+
+### Buffered 스트림
+
+- 내부적으로 8192 바이트 배열을 가지고 읽거나 쓰기 기능을 제공하여 속도가 빨라짐
+
+| 스트림 클래스                | 설명                           |
+|------------------------|------------------------------|
+| `BufferedInputStream`  | 바이트 단위로 읽는 스트림에 버퍼링 기능을 제공   |
+| `BufferedOutputStream` | 바이트 단위로 출력하는 스트림에 버퍼링 기능을 제공 |
+| `BufferedReader`       | 문자 단위로 읽는 스트림에 버퍼링 기능 제공     |
+| `BufferedWriter`       | 문자 단위로 출력하는 스트림에 버퍼링 기능 제공   |
+
+## 직렬화(serialization)
+
+- 인스턴스의 상태를 그대로 저장하거나(serialization) 다시 복원하는(deserialization) 방식
+- 파일에 쓰거나 네트워크 전송 시 사용
+- `ObjectInputStream` 과 `ObjectOutputStream` 사용
+
+| 생성자                                   | 설명                                                     |
+|---------------------------------------|--------------------------------------------------------|
+| `ObjectInputStream(InputStream in)`   | `InputStream`을 생성자의 매개변수로 받아 `ObjectInputStream`을 생성   |
+| `ObjectOutputStream(InputStream out)` | `OutputStream`을 생성자의 매개변수로 받아 `ObjectOutputStream`을 생성 |
+
+## 그 외 입출력 클래스
+
+- `File` 클래스
+  - 파일 개념을 추상화한 클래스
+  - 입출력 기능은 없고 파일의 속성, 경로, 이름 등을 알 수 있음
+- `RandomAccessFile` 클래스
+  - 입출력 클래스 중 유일하게 파일 입출력을 동시에 할 수 있는 클래스
+  - 파일 포인터가 있어 읽고 쓰는 위치의 이동이 가능
+  - 다양한 자료형에 대한 메서드가 제공됨
+
+
+
